@@ -46,3 +46,13 @@ function getLetters(moves, array) {
 }
 
 getLetters(moves, stacks)
+
+const product = {
+    Product_id: '.....',
+    Product_title: '....',
+    Description: '.....',
+    Price: '.....',
+    Product_pictures: '.....',
+    Product_reviews: '......',
+    Faqs: '......',
+}
