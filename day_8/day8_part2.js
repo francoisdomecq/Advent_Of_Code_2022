@@ -2,7 +2,7 @@ const FileReader = require('../utils/file_reader')
 const dataInput = FileReader.readFile('./day_8/data.txt')
 
 const dataInputFormatted = dataInput.map((value) => value.split(''))
-let visibleTrees = []
+let maxScenicScore = -1
 
 for (let i = 1; i < dataInputFormatted[0].length - 1; i++) {
     for (let j = 1; j < dataInputFormatted.length - 1; j++) {
@@ -35,13 +35,20 @@ for (let i = 1; i < dataInputFormatted[0].length - 1; i++) {
                 break
             }
         }
-        visibleTrees.push(
+        if (
             visibleTreesBottom *
                 visibleTreesLeft *
                 visibleTreesRight *
+                visibleTreesTop >
+            maxScenicScore
+        ) {
+            maxScenicScore =
+                visibleTreesBottom *
+                visibleTreesLeft *
+                visibleTreesRight *
                 visibleTreesTop
-        )
+        }
     }
 }
 
-console.log(visibleTrees.sort((a, b) => b - a)[0])
+console.log(maxScenicScore)
